@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>POP3 - Commands</title>
+    <link rel="icon" href="img/pop3_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><img src="img/mail_icon.png" alt="logo"> POP3</h1>
+        <span>Post Office Protocol</span>
+    </header>
+    <nav>
+        <a href="index.html">Начална страница</a>
+        <a href="history.html">История</a>
+        <a href="commands.html">Команди</a>
+        <a href="comparisons.html">Сравнение</a>
+        <a href="advantages_disadvantages.html">Предимства и недостатъци</a>
+    </nav>
+
+    <div class="main-wrapper">
+        <article>
+            <h2>Команди на POP3</h2>
+            <hr>
+            <table>
+                <tr>
+                    <th class="command">КОМАНДА</th>
+                    <th class="explanation">ОБЯСНЕНИЕ</th>
+                    <th class="example">ПРИМЕР</th>
+                    <th class="result">ВЪЗМОЖЕН РЕЗУЛТАТ</th>
+                </tr>
+                <tr>
+                    <td>USER [username]</td>
+                    <td>Първата команда нужна за логиране. Където си въвеждаме потребителското име.</td>
+                    <td>USER Simeon</td>
+                    <td>+OK user name accepted, password please <br>-ERR sorry, no mailbox for Simeon here</td>
+                </tr>
+                <tr>
+                    <td>PASS [password]</td>
+                    <td>Втората команда нужна за логиране. Където си въвеждаме парола.</td>
+                    <td>PASS secret</td>
+                    <td>+OK Simeon's maildrop has 2 messages (280 bytes) <br>-ERR maildrop already locked <br>-ERR invalid password</td>
+                </tr>
+                <tr>
+                    <td>QUIT</td>
+                    <td>Излизаме от профила си и запазваме промените.</td>
+                    <td>QUIT</td>
+                    <td>+OK dewey POP3 server signing off (maildrop empty) <br>+OK dewey POP3 server signing off (2 messages left) <br>-ERR some deleted messages not removed</td>
+                </tr>
+                <tr>
+                    <td>STAT</td>
+                    <td>Връща колко пораки имаме и нивната големина.</td>
+                    <td>STAT</td>
+                    <td>+OK 2 280</td>
+                </tr>
+                <tr>
+                    <td>LIST</td>
+                    <td>Подрежда ни ги всички пораки, изписва номер на порака и големина и.</td>
+                    <td>LIST</td>
+                    <td>+OK 2 messages (280 bytes) <br>1 100 <br>2 180 <br>...</td>
+                </tr>
+                <tr>
+                    <td>LIST [message]</td>
+                    <td>Изписва ни номера на пораката и големината и.</td>
+                    <td>LIST 2</td>
+                    <td>+OK 2 180 <br>-ERR no such message, only 1 messages in maildrop</td>
+                </tr>
+                <tr>
+                    <td>RETR [message]</td>
+                    <td>Извличане ни цялата порака.</td>
+                    <td>RETR 1</td>
+                    <td>+OK 100 octets follow. <br>***</td>
+                </tr>
+                <tr>
+                    <td>DELE [message]</td>
+                    <td>Изтрива пораката по зададения номер.</td>
+                    <td>DELE 2</td>
+                    <td>+OK message deleted <br>-ERR message 2 already deleted</td>
+                </tr>
+                <tr>
+                    <td>RSET</td>
+                    <td>Възстановява маркираните за изтриване съобщения, ако има маркирани за изтриване.</td>
+                    <td>RSET</td>
+                    <td>+OK maildrop has 2 messages (280 bytes)</td>
+                </tr>
+                <tr>
+                    <td>TOP [message] [number]</td>
+                    <td>Връща заглавията и броя на редовете от съобщението.</td>
+                    <td>RSET</td>
+                    <td>TOP 1 10 <br>+OK <br>*** <br>-ERR no such message</td>
+                </tr>
+                <tr>
+                    <td>NOOP</td>
+                    <td>Не извършва действия и връща положителен отговор.</td>
+                    <td>NOOP</td>
+                    <td>+OK </td>
+                </tr>
+                <tr>
+                    <td>UIDL</td>
+                    <td>Подрежда ни ги всички пораки, изписва номер на порака и неговия уникален идентификатор.</td>
+                    <td>UIDL</td>
+                    <td>+OK <br>1 whqtsw0OOWBw418f9t5JxYwZ <br>2 QhdPYR:00WBw1Ph7x7 <br>... </td>
+                </tr>
+                <tr>
+                    <td>UIDL [message]</td>
+                    <td>Изписва ни номера на пораката и неговия уникален идентификатор.</td>
+                    <td>UIDL 2</td>
+                    <td>+OK <br>2 QhdPYR:00WBw1Ph7x7</td>
+                </tr>
+                <tr>
+                    <td>APOP [username] [digest]</td>
+                    <td>Команда за логиране, където въвеждаме потребителското име и паролата в кодиран вид която се изчислява по MD5 алгоритъма.</td>
+                    <td>APOP Simeon c4c9334bac560ecc979e58001b3e22fb</td>
+                    <td>+OK maildrop has 2 messages (280 bytes)</td>
+                </tr>
+            </table>
+
+        </article>
+    </div>
+
+    <footer>
+        <h3>Изработил: Симеон Симеонов</h3>
+        <h4>Факултетен №: 123218012</h4>
+        <h4>Група: 51</h4>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>POP3 - What is SMTP?</title>
+    <link rel="icon" href="img/pop3_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><img src="img/mail_icon.png" alt="logo"> POP3</h1>
+        <span>Post Office Protocol</span>
+    </header>
+    <nav>
+        <a href="index.html">Начална страница</a>
+        <a href="history.html">История</a>
+        <a href="commands.html">Команди</a>
+        <a href="comparisons.html">Сравнение</a>
+        <a href="advantages_disadvantages.html">Предимства и недостатъци</a>
+    </nav>
+
+    <div class="main-wrapper">
+        <article>
+            <h2>Какво е SMTP?</h2>
+            <hr>
+            <p>Повечето интернет системи използват SMTP като метод за прехвърляне на поща от един потребител на друг. SMTP е изпращаш протокол и се използва за изпращане на поща, докато <a href="index.html">POP</a> или <a href="imap.html">IMAP</a> се използват
+                за извличане на тези имейли от страната на получателя.
+            </p>
+            <p>Клиентът, който иска да изпрати пощата, отваря TCP връзка към SMTP сървъра и след това изпраща пощата през връзката. SMTP сървърът е винаги включен в режим на слушане. След успешно установяване на TCP връзка, клиентският процес изпраща пощата
+                незабавно.
+            </p>
+            <img src="img/smtp.png" alt="">
+            <p>SMTP моделът е от два вида:</p>
+            <ul>
+                <li>Метод end-to-end (от край до край)</li>
+                <li>Метод за съхранение и препращане</li>
+            </ul>
+            <p>Моделът от end-to-end се използва за комуникация между различни организации, докато методът за съхранение и препращане се използва в рамките на една организация.</p>
+            <a href="https://mailchimp.com/developer/transactional/docs/smtp-integration/">За по-подробна информация може да прочетене документацията.</a>
+        </article>
+    </div>
+
+    <footer>
+        <h3>Изработил: Симеон Симеонов</h3>
+        <h4>Факултетен №: 123218012</h4>
+        <h4>Група: 51</h4>
+    </footer>
+</body>
+
+</html>
